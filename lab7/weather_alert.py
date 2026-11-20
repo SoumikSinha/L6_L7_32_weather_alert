@@ -1,11 +1,5 @@
-"""Hardened weather alert parser and classifier resilient against malformed inputs."""
-
-
 def parse_reading(text):
-    """Safely parse temperature and humidity from string formatted as 'temp/humidity'.
-
-    Returns (temp_float, humidity_int), or (0.0, 0) on invalid or malformed input.
-    """
+    """Parse temperature and humidity from input string."""
     if not isinstance(text, str) or "/" not in text:
         return 0.0, 0
     parts = text.split("/")
@@ -20,10 +14,7 @@ def parse_reading(text):
 
 
 def wind_category(speed_text):
-    """Safely categorize wind speed string into severity category.
-
-    Returns 'warning', 'advisory', or 'none'.
-    """
+    """Categorize wind speed into alert category."""
     if speed_text is None:
         return "none"
     try:
@@ -39,10 +30,7 @@ def wind_category(speed_text):
 
 
 def rainfall_spread(readings_csv):
-    """Safely calculate rainfall spread (max - min) from comma-separated readings.
-
-    Returns float difference, or 0.0 on empty or invalid inputs.
-    """
+    """Calculate difference between max and min rainfall."""
     if not isinstance(readings_csv, str) or not readings_csv.strip():
         return 0.0
     valid_readings = []

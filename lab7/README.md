@@ -1,4 +1,4 @@
-# L6_L7_32 — Weather Alert Classifier
+# L6_L7_32  -  Weather Alert Classifier
 
 Lab 7: Fuzz Testing
 
